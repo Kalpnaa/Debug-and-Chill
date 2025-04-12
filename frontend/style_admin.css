@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    color: #333;
+  }
+  
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  }
+  
+  .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #444;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #962fbf;
+  }
+  
+  /* WELCOME SECTION */
+  .welcome-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3rem 2rem;
+  }
+  
+  .welcome-text {
+    max-width: 500px;
+  }
+  
+  .gradient-text {
+    font-size: 2.8rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .subtext {
+    font-size: 1.2rem;
+    margin-top: 0.6rem;
+    color: #666;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+  
+  .welcome-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #fa7e1e, #d62976);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .welcome-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+  }
+  .welcome-btn a{
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .welcome-image img {
+    max-width: 500px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  }
+  .footer {
+  background: linear-gradient(to right, #fcd7df, #fdf7ff); /* Soft pink-purple blend */
+  padding: 2rem;
+  border-top: 1px solid #eee;
+  text-align: center;
+  margin-top: 4rem;
+  color: #555;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.03);
+}
+
+  
+  .footer-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #feda75, #d62976, #962fbf, #4f5bd5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-desc {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #d62976;
+  }
+  
+  .footer-line {
+    border: none;
+    border-top: 1px solid #ddd;
+    width: 80%;
+    margin: 1rem auto;
+  }
+  
+  .footer-copy {
+    font-size: 0.9rem;
+    color: #888;
+  }
+  

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PackPal – Trip & Task</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header>
+    <header class="navbar">
+      <h1 class="logo">📋 PackPal</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="tasks.html">Tasks</a></li>
+          <li><a href="admin.html">Admin</a></li>
+        </ul>
+      </nav>
+    </header>
+  </header>
+
+  <main>
+    <!-- Step 1: Create Trip -->
+    <section class="trip-form-section">
+      <hr />
+      <h2>Create Your Trip</h2>
+      <hr />
+      <form id="trip-form" onsubmit="createNewEvent(event)">
+        <label>Trip name:
+          <input type="text" id="event-name" placeholder="Enter Event Name" />
+        </label>
+        <label>Destination:
+          <input type="text" id="trip-location" required />
+        </label>
+        <label>Start Date:
+          <input type="date" id="start-date" required />
+        </label>
+        <label>End Date:
+          <input type="date" id="end-date" required />
+        </label>
+        <label>Number of People:
+          <input type="number" id="member-count" min="1" required />
+        </label>
+        <button type="submit">Create Event</button>
+      </form>
+    </section>
+
+    <!-- Step 2: View Events -->
+    <section class="event-list-section">
+      <h2>Current Events</h2>
+      <ul id="event-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">✨ PackPal Planner</h3>
+      <p class="footer-desc">Built for productivity and collaboration. Assign, track, and conquer tasks together!</p>
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="support.html">Support</a>
+      </div>
+      <hr class="footer-line" />
+      <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
+    </div>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

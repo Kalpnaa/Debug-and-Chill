@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Tasks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">📋 PackPal</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="tasks.html">Tasks</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+  
+  <h2 id="event-title">Event Task </h2>
+
+  <div>
+    <input type="text" id="task-name" placeholder="Task name" />
+    <input type="text" id="assigned-to" placeholder="Assign to username" />
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <h3>Tasks</h3>
+  <ul id="task-list"></ul>
+
+  <script src="js/event.js"></script>
+</main>
+<footer class="footer">
+  <div class="footer-content">
+    <h3 class="footer-title">✨ PackPal Planner</h3>
+    <p class="footer-desc">Built for productivity and collaboration. Assign, track, and conquer tasks together!</p>
+    
+    <div class="footer-links">
+      <a href="home.html">Home</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="support.html">Support</a>
+    </div>
+
+    <hr class="footer-line" />
+    <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
+  </div>
+</footer>
+
+</body>
+</html> 

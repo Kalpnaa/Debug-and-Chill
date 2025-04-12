@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PackPal - Travel Organizer</title>
+    <meta name="description" content="Group Travel Organizer" />
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+           <img src="logo.png" alt="PackPal Logo" width="36" height="36" />
+            <span class="logo-text">PackPal</span>
+          
+            
+              <path d="M10 18L16 24L26 14" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="logo-gradient" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#8A2BE2" />
+                  <stop offset="0.5" stopColor="#FF00FF" />
+                  <stop offset="1" stopColor="#FF8C00" />
+                </linearGradient>
+              </defs>
+            
+           
+          </div>
+          
+          <!-- Desktop Navigation -->
+          <nav class="nav-menu" id="nav-menu">
+            <a href="#features-section" class="nav-link">Features</a>
+            <a href="#" class="nav-link" data-content="how-it-works">How It Works</a>
+          
+            <a href="aboutus.html" class="nav-link" data-content="about">About</a>
+          </nav>
+          
+          <div class="header-buttons">
+            <button class="gradient-button blink-button" id="login-btn">Log In</button>
+            <button class="mobile-menu-toggle" id="menu-toggle">
+              <i class="fas fa-bars" id="menu-icon"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <div class="container">
+          <nav class="mobile-nav">
+            <a href="#features-section" class="mobile-nav-link">Features</a>
+            <a href="#" class="mobile-nav-link" data-content="how-it-works">How It Works</a>
+            <a href="#" class="mobile-nav-link" data-content="pricing">Pricing</a>
+            <a href="#" class="mobile-nav-link" data-content="about">About</a>
+            <div class="mobile-button-container">
+              <button class="gradient-button blink-button w-full">Log In</button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      
+      <!-- Dynamic Content Display -->
+      <div class="content-display" id="content-display">
+        <div class="container">
+          <div class="content-card">
+            <h3 class="content-title" id="content-title"></h3>
+            <p class="content-text" id="content-text"></p>
+            <div class="content-footer">
+              <button class="close-btn" id="close-content">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <!-- Background gradient -->
+      <div class="bg-gradient"></div>
+      
+      <!-- Animated circles in background -->
+      <div class="animated-circle circle-1"></div>
+      <div class="animated-circle circle-2"></div>
+      
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title animate-fade-in">
+            <span class="title-main">PackPal</span>
+            <span class="title-sub">Group Travel Organizer</span>
+          </h1>
+          
+          <p class="hero-description animate-fade-in">
+            Streamline your group travel planning with collaborative checklists, 
+            role-based access, and real-time progress tracking. Perfect for families, friend groups, and team outings.
+          </p>
+
+          <div class="hero-buttons animate-fade-in">
+            <button class="gradient-button pulse-button blink-button" id="get-started-btn">
+              Get Started
+            </button>
+            <button class="gradient-button outlined-button blink-button" id="learn-more-btn">
+              Learn More
+            </button>
+          </div>
+
+          <!-- Feature highlights -->
+          <section id="features-section" class="section">
+            <!-- Features section content would go here -->
+            <div class="container">
+              <h2 class="section-title">Our Features</h2>
+              <div class="features-grid">
+                <!-- Feature cards would go here -->
+              </div>
+            </div>
+          </section>
+          
+          <div class="feature-highlights">
+            <div class="feature-card scroll-trigger-item">
+              <div class="feature-icon">
+                <div class="icon-container">
+                  <i class="fas fa-box-open"></i>
+                </div>
+              </div>
+              <h3 class="feature-title">Collaborative Checklists</h3>
+              <p class="feature-description">Create and share packing lists with your group, categorize items, and track progress in real-time. Sync across all devices.</p>
+            </div>
+            
+            <div class="feature-card scroll-trigger-item">
+              <div class="feature-icon">
+                <div class="icon-container">
+                  <i class="fas fa-users"></i>
+                </div>
+              </div>
+              <h3 class="feature-title">Role-Based Access</h3>
+              <p class="feature-description">Assign Owner, Admin, Member, or Viewer roles to control who can modify lists and update item status. Perfect for family trips.</p>
+            </div>
+            
+            <div class="feature-card scroll-trigger-item">
+              <div class="feature-icon">
+                <div class="icon-container">
+                  <i class="fas fa-tasks"></i>
+                </div>
+              </div>
+              <h3 class="feature-title">Progress Tracking</h3>
+              <p class="feature-description">Monitor packing progress with visual indicators and get alerts for duplicate items and conflicts. Never forget essentials again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Login Section -->
+    <section id="login-section" class="section">
+      <div class="container">
+        <h2 class="section-title">Get Started with PackPal</h2>
+        
+                
+              </div>
+            </form>
+          </div>
+          
+          <div class="info-cards">
+            <div class="info-card scroll-trigger-item">
+              <h3 class="card-title">Role-Based Access</h3>
+              <p class="card-text">
+                <span class="highlight">Owner:</span> Full control over events, lists, and user permissions.<br>
+                <span class="highlight">Admin:</span> Can add tasks and assign responsibilities.<br>
+                <span class="highlight">Member:</span> Views and updates assigned tasks only.<br>
+                <span class="highlight">Viewer:</span> Read-only access to monitor progress.
+              </p>
+            </div>
+            
+            <div class="info-card scroll-trigger-item">
+              <h3 class="card-title">Real-Time Updates</h3>
+              <p class="card-text">
+                See who's packed what and track overall progress with our intuitive progress bars and dashboards.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="decorative-circle circle-3"></div>
+      <div class="decorative-circle circle-4"></div>
+    </section>
+    
+    <!-- Features Section -->
+    
+    <!-- CTA Section -->
+    <section class="cta-section scroll-trigger-item">
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready for Your Next Adventure?</h2>
+          <p class="cta-description">
+            Join thousands of travelers who use PackPal to make group travel planning smooth and stress-free.
+          </p>
+          <div class="cta-button-container">
+            <button class="gradient-button pulse-button blink-button" id="start-packing-btn">
+              Start Packing Now
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Decorative background -->
+      <div class="bg-gradient-overlay"></div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer scroll-trigger-item">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <h2 class="footer-logo-text">PackPal</h2>
+            <p class="footer-description">
+              Simplifying group travel planning and packing with collaborative tools for teams,
+              events, and adventures.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link" data-platform="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="Facebook">
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a href="#" class="social-link" data-platform="GitHub">
+                <i class="fab fa-github"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="footer-links">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-list">
+              <li><a href="#features-section" class="footer-link">Features</a></li>
+              <li><a href="#" class="footer-link" data-link="Pricing">Pricing</a></li>
+              <li><a href="#" class="footer-link" data-link="Support">Support</a></li>
+              <li><a href="#" class="footer-link" data-link="Blog">Blog</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-contact">
+            <h3 class="footer-title">Contact</h3>
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>contact@packpal.app</span>
+              </div>
+              <button class="gradient-button outlined-button blink-button" id="request-demo-btn">
+                Request a Demo
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-bottom">
+          <p class="copyright">© 2025 PackPal. All rights reserved.</p>
+          <div class="legal-links">
+            <a href="#" class="legal-link" data-link="Privacy Policy">Privacy Policy</a>
+            <a href="#" class="legal-link" data-link="Terms of Service">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Content Display for Footer -->
+      <div class="footer-content-display" id="footer-content-display">
+        <div class="container">
+          <div class="footer-content-card">
+            <div class="content-header">
+              <p class="content-text" id="footer-content-text"></p>
+              <button class="close-btn" id="close-footer-content">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="home.js"></script>
+  </body>
+</html>
