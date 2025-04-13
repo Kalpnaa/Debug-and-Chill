@@ -188,3 +188,15 @@ body {
 .footer-copy {
   font-size: 0.8rem;
 }
+/* Mark completed tasks with a line-through and lower opacity */
+.task-card.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+  background-color: #d3ffd3;  /* Optional: Change the background color for completed tasks */
+}
+/* Style for completed tasks */
+.completed {
+  background-color: #e0ffe0; /* Light green background */
+  text-decoration: line-through; /* Strike-through text */
+  opacity: 0.7; /* Slightly faded appearance */
+}

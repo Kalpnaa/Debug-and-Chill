@@ -68,6 +68,62 @@ router.get("/assigned/:username", async (req, res) => {
   }
 });
 
+router.post("/add/:eventId", async (req, res) => {
+  try {
+    const { title, description, assignedTo, status } = req.body;
+    const { eventId } = req.params;
+
+    if (!title || !assignedTo || !eventId) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const newTask = new Task({
+      title,
+      description,
+      assignedTo,
+      status,
+      eventId
+    });
+
+    const savedTask = await newTask.save();
+
+    // Link to event
+    const event = await Event.findById(eventId);
+    if (event) {
+      event.tasks.push(savedTask._id);
+      await event.save();
+    }
+
+    res.status(201).json(savedTask); // ✅ Return the full task
+  } catch (error) {
+    console.error("Error adding task:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+
+router.put('/mark-complete/:id', async (req, res) => {
+  const { id } = req.params;
+  const { completed } = req.body;
+
+  try {
+    const task = await Task.findByIdAndUpdate(
+      id,
+      { completed },
+      { new: true }
+    );
+
+    if (!task) {
+      return res.status(404).json({ message: 'Task not found' });
+    }
+
+    res.json(task);
+  } catch (error) {
+    console.error('Error updating task:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
 
 
 module.exports = router;

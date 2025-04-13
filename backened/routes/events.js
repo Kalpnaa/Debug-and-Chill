@@ -2,14 +2,18 @@ const express = require("express");
 const router = express.Router();
 const Event = require("../models/Event");
 
-// Create a new event
+// ✅ CREATE NEW EVENT
 router.post("/create", async (req, res) => {
   try {
-    const { name, location, startDate, endDate, memberCount, createdBy } = req.body;
-
-    if (!name || !location || !startDate || !endDate || !memberCount || !createdBy) {
-      return res.status(400).json({ message: "All fields are required." });
-    }
+    const {
+      name,
+      location,
+      startDate,
+      endDate,
+      memberCount,
+      createdBy,
+      status,
+    } = req.body;
 
     const newEvent = new Event({
       name,
@@ -18,40 +22,68 @@ router.post("/create", async (req, res) => {
       endDate,
       memberCount,
       createdBy,
-      status: "planned",
+      status,
     });
 
-    await newEvent.save();
-    res.status(201).json({ message: "Event created successfully", _id: newEvent._id });
+    const savedEvent = await newEvent.save();
+    res.status(201).json({ message: "Event created", event: savedEvent });
   } catch (err) {
     console.error("Error creating event:", err);
-    res.status(500).json({ message: "Error creating event" });
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-// Fetch all events
-router.get("/", async (req, res) => {
+// ✅ GET EVENTS CREATED BY A SPECIFIC ADMIN
+router.get("/admin-events", async (req, res) => {
   try {
-    const events = await Event.find();
+    const { admin } = req.query;
+    if (!admin) {
+      return res.status(400).json({ message: "Admin username is required" });
+    }
+
+    const events = await Event.find({ createdBy: admin });
     res.json(events);
-  } catch (error) {
-    res.status(500).json({ message: "Error fetching events" });
+  } catch (err) {
+    console.error("Error fetching events for admin:", err);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-// Fetch a single event with tasks populated
-// In routes/events.js
+
+
+// Add a new task to an event
+router.post('/add/:eventId', async (req, res) => {
+  try {
+    const { eventId } = req.params;
+    const { title, description, assignedTo, status } = req.body;
+
+    const event = await Event.findById(eventId);
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+
+    // Add task to event
+    const newTask = { title, description, assignedTo, status };
+    event.tasks.push(newTask);
+    await event.save();
+
+    res.status(200).json({ message: 'Task added successfully', event });
+  } catch (error) {
+    console.error('Error adding task:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 router.get("/:id", async (req, res) => {
   try {
-    const event = await Event.findById(req.params.id)
-      .populate("tasks"); // <-- This is IMPORTANT
-
+    const event = await Event.findById(req.params.id).populate("tasks"); // ✅ Important
+    if (!event) return res.status(404).json({ message: "Event not found" });
     res.json(event);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Failed to fetch event" });
+    res.status(500).json({ message: "Error fetching event" });
   }
 });
+
+
 
 
 module.exports = router;

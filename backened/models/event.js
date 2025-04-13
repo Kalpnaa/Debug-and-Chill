@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const eventSchema = new mongoose.Schema({
+const EventSchema = new mongoose.Schema({
   name: String,
   location: String,
   startDate: Date,
   endDate: Date,
   memberCount: Number,
-  createdBy: String,
-  status: { type: String, default: "planned" },
-  tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Task" }]
+  createdBy: String, // Admin who created the event
+  status: String,  // e.g., planned, ongoing, completed
+  tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Task' }]  // Reference to tasks
 });
 
-module.exports = mongoose.models.Event || mongoose.model("Event", eventSchema);
+module.exports = mongoose.model('Event', EventSchema);

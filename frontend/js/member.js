@@ -35,7 +35,7 @@ async function loadTasks() {
 
     data.forEach((task) => {
       const li = document.createElement("li");
-      li.className = "task-card";
+      li.className = `task-card ${task.completed ? 'completed' : ''}`;
 
       const title = capitalize(task.title || "Untitled Task");
       const desc = capitalize(task.description || "No description");
@@ -44,10 +44,41 @@ async function loadTasks() {
       li.innerHTML = `
         <h3>${title}</h3>
         <p>${desc}</p>
-        <p>Status: ${status}</p>
+        <label style="display:none;">
+          <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} />
+        </label>
+        <p class="status-text">${status}</p>
       `;
 
       if (task.completed) completedCount++;
+
+      // 📌 Add click to mark as completed/incomplete
+      li.addEventListener("click", async () => {
+        try {
+          const isCompleted = !task.completed;
+
+          const response = await fetch(`http://localhost:5000/api/tasks/mark-complete/${task._id}`, {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ completed: isCompleted }),
+          });
+
+          if (response.ok) {
+            task.completed = isCompleted;
+            li.classList.toggle('completed', isCompleted);
+            const statusText = li.querySelector('.status-text');
+            statusText.textContent = isCompleted ? '✅ Done' : '⌛ Pending';
+
+            loadTasks(); // 🔁 Re-fetch to update progress circle
+          } else {
+            console.error("Failed to update task status");
+          }
+        } catch (err) {
+          console.error("Error marking task as complete:", err);
+        }
+      });
 
       taskList.appendChild(li);
     });

@@ -1,12 +1,12 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const taskSchema = new mongoose.Schema({
+const TaskSchema = new mongoose.Schema({
   title: String,
   description: String,
-  assignedTo: String,
-  createdBy: String,
-  completed: { type: Boolean, default: false },
-  eventId: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
+  assignedTo: String,  // User to whom the task is assigned
+  status: String,  // e.g., pending, completed
+  createdBy: String,  // Admin who created the task
+  eventId: { type: mongoose.Schema.Types.ObjectId, ref: 'Event' }
 });
 
-module.exports = mongoose.models.Task || mongoose.model("Task", taskSchema);
+module.exports = mongoose.model('Task', TaskSchema);

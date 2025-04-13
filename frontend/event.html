@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Event Details | PackPal</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -34,6 +34,18 @@
     <h3>Tasks</h3>
     <ul id="task-list"></ul>
   </section>
+  <div>
+    <input type="text" id="task-name" placeholder="Task name" />
+    <input type="text" id="assigned-to" placeholder="Assign to username" />
+    <button onclick="addTask()">Add Task</button>
+
+  </div>
+  <div style="margin-top: 20px;">
+    <h4>Progress</h4>
+    <div style="background: #ccc; width: 100%; height: 25px; border-radius: 5px;">
+      <div id="progress-bar" style="height: 100%; width: 0%; background: green; color: white; text-align: center; border-radius: 5px;">0%</div>
+    </div>
+  </div>
 
   <footer class="footer">
     <div class="footer-content">
