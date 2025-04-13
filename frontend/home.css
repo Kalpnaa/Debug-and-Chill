@@ -51,13 +51,13 @@
 }
 
 /* Logo Text */
-.logo-text {
+span .logo-text {
   font-size: 28px; /* Adjust as needed */
   font-weight: bold;
   color: #d94e7d; /* Instagram-like pink */
  
   letter-spacing: 2px;
-  font-family:fantasy;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
   
@@ -527,23 +527,6 @@
   gap: 10px;
 }
 
-/* Logo Image */
-.logo img {
-  width: 40px; /* Adjust based on your logo size */
-  height: 40px;
-  border-radius: 50%; /* Optional: if you want a circular logo */
-  object-fit: cover;
-}
-
-/* Logo Text */
-.logo-text {
-  font-size: 28px; /* Adjust as needed */
-  font-weight: bold;
-  color: #d94e7d; /* Instagram-like pink */
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-family: 'Arial', sans-serif;
-}
 
   
   .login-form h3 {

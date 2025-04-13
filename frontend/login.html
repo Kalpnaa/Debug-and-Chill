@@ -3,34 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <title>PackPal – Login</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <header class="navbar">
-    <h1 class="logo">📋 PackPal</h1>
+    <div class="logo">
+      <img src="logo.png" alt="PackPal Logo" width="36" height="36" />
+      <span class="logo-text">PackPal</span>
+    </div>
     <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="login.html">Login IN</a></li>
+        <li><a href="login.html">Log IN</a></li>
       </ul>
     </nav>
   </header>
+
   <div class="form-container">
     <h2>Login</h2>
     <form id="login-form">
+      <label for="login-username">Username</label>
       <input type="text" id="login-username" placeholder="Username" required />
+
+      <label for="login-password">Password</label>
       <input type="password" id="login-password" placeholder="Password" required />
+
+      <label for="login-role">Select Role</label>
       <select id="login-role" required>
-        <option value="" disabled selected>Select Role</option>
+        <option value="" disabled selected hidden>Select Role</option>
         <option value="admin">Admin</option>
         <option value="member">Member</option>
         <option value="viewer">Viewer</option>
       </select>
-      <label><input type="checkbox" id="rememberMe" /> Remember Me</label>
+
+      <label>
+        <input type="checkbox" id="rememberMe" /> Remember Me
+      </label>
+
       <button type="submit">Login</button>
       <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
     </form>
   </div>
+
+  
+  <hr />
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">✨ PackPal Planner</h3>
+      <p class="footer-desc">Built for productivity and collaboration. Assign, track, and conquer tasks together!</p>
+
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="support.html">Support</a>
+      </div>
+
+      <hr class="footer-line" />
+      <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
+    </div>
+  </footer>
   <script src="js/login.js"></script>
 </body>
 </html>
+ 

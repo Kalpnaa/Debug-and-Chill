@@ -3,24 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Member Dashboard – PackPal</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Member Dashboard | PackPal</title>
+  <link rel="stylesheet" href="styles-member.css">
 </head>
+
 <body>
-  <div class="container">
-    <h1>👋 Welcome, Member!</h1>
-    <p class="subheading">Here's your current task list. Let's get things done!</p>
 
-    <div id="task-container" class="task-container"></div>
+  <!-- 🌈 Navbar -->
+  <header class="navbar insta-gradient">
+    
+    <h1 class="logo"><img src="logo.png">PackPal</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="member.html">My Tasks</a></li>
+        <li><a href="support.html">Support</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="progress-section">
-      <h3>Your Progress</h3>
-      <div class="progress-bar-outer">
-        <div class="progress-bar-inner" id="progress-bar">0%</div>
-      </div>
-    </div>
+  <!-- ✨ Motivational Greeting -->
+  <div class="motivational-text">
+    <h2>Welcome back, Champion! 💪</h2>
+    <p class="quote">Complete your tasks, conquer your day! 🌟</p>
   </div>
 
+  <!-- 💼 Main Functional Layout -->
+  <div class="dashboard-flex">
+    
+    <!-- ✅ Task Section -->
+    <section class="task-section">
+      <h2>My Assigned Tasks</h2>
+      <ul id="task-list" class="task-list">
+        
+        <!-- More cards will be added via JS -->
+      </ul>
+    </section>
+
+    <!-- 🎯 Progress Section (Bigger & Centered) -->
+    <div class="progress-section">
+      <div class="progress-wrapper">
+        <svg class="progress-ring" width="300" height="300">
+          <defs>
+            <linearGradient id="instaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f09433"/>
+              <stop offset="25%" stop-color="#e6683c"/>
+              <stop offset="50%" stop-color="#dc2743"/>
+              <stop offset="75%" stop-color="#cc2366"/>
+              <stop offset="100%" stop-color="#bc1888"/>
+            </linearGradient>
+          </defs>
+          <circle class="progress-ring__bg" cx="150" cy="150" r="130" />
+          <circle class="progress-ring__circle" cx="150" cy="150" r="130" />
+        </svg>
+        <div class="progress-label">
+          <span id="progress-percent">0%</span>
+          <p>Completed</p>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- End of Dashboard Flex -->
+
+  <!-- 🔻 Footer -->
+  <footer class="footer gradient-footer">
+    <div class="footer-content">
+      <h3 class="footer-title">✨ PackPal Planner</h3>
+      <p class="footer-desc">Stay on top of your tasks. Check, complete, repeat!</p>
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="support.html">Support</a>
+      </div>
+      <hr class="footer-line" />
+      <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
+    </div>
+  </footer>
+
+  <!-- 📜 JavaScript -->
   <script src="js/member.js"></script>
+
 </body>
 </html>

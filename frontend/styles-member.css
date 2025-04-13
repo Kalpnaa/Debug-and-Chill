@@ -1,0 +1,190 @@
+/* 🌐 Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* 🌈 Instagram Gradient Navbar */
+.insta-gradient {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+}
+
+/* 🌍 Navbar */
+.navbar {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.5rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Logo Image */
+.logo img {
+  width: 45px; /* Adjust based on your logo size */
+  height: 45px;
+  border-radius: 50%; /* Optional: if you want a circular logo */
+  object-fit: cover;
+}
+.navbar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.navbar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ✨ Motivational Text */
+.motivational-text {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f09433, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.motivational-text h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+.motivational-text .quote {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* 💼 Dashboard Layout */
+.dashboard-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
+}
+.task-section {
+  flex: 1.5;
+}
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+/* 🧾 Task Cards */
+.task-card {
+  background: #fff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.2s ease;
+  border: 2px dashed #dc2743;
+}
+.task-card:hover {
+  transform: translateY(-2px);
+}
+.task-card.completed {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+.priority-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.4em 0.8em;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
+.high-priority .priority-badge {
+  background: #e74c3c;
+}
+.medium-priority .priority-badge {
+  background: #f39c12;
+}
+.low-priority .priority-badge {
+  background: #2ecc71;
+}
+
+/* 🎯 Progress Section */
+.progress-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.progress-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+.progress-ring {
+  transform: rotate(-90deg);
+}
+.progress-ring__bg {
+  fill: none;
+  stroke: #e0e0e0;
+  stroke-width: 18;
+}
+.progress-ring__circle {
+  fill: none;
+  stroke: url(#instaGradient);
+  stroke-width: 18;
+  stroke-dasharray: 816.8; /* 2πr for r=130 */
+  stroke-dashoffset: 816.8;
+  transition: stroke-dashoffset 0.35s ease;
+  stroke-linecap: round;
+}
+.progress-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+}
+
+/* 🔻 Footer */
+.footer {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #fad6cc, #f1acf6);
+  color: rgb(53, 45, 45);
+}
+.footer-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.footer-desc {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.footer-links a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+}
+.footer-line {
+  margin: 1rem 0;
+  border: 0.5px solid #ddd;
+  opacity: 0.3;
+}
+.footer-copy {
+  font-size: 0.8rem;
+}

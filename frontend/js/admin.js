@@ -71,3 +71,37 @@ async function createNewEvent(event) {
     alert("Failed to create event.");
   }
 }
+
+// Load the events when the page is ready
+async function loadEvents() {
+  const eventList = document.getElementById("event-list");
+
+  try {
+    const res = await fetch("http://localhost:5000/api/events");
+    const events = await res.json();
+
+    events.forEach((event) => {
+      const li = document.createElement("li");
+      li.className = "event-card";
+
+      const start = new Date(event.startDate).toLocaleDateString();
+      const end = new Date(event.endDate).toLocaleDateString();
+
+      li.innerHTML = `
+        <h3>${event.name}</h3>
+        <p><strong>Location:</strong> ${event.location}</p>
+        <p><strong>Dates:</strong> ${start} – ${end}</p>
+        <p><strong>Members:</strong> ${event.memberCount}</p>
+        <p><strong>Status:</strong> ${event.status}</p>
+        <a href="event.html?id=${event._id}">🔍 View Event</a>
+      `;
+
+      eventList.appendChild(li);
+    });
+  } catch (err) {
+    console.error("Error fetching events:", err);
+  }
+}
+
+// Call the loadEvents function when the page is loaded
+window.addEventListener("DOMContentLoaded", loadEvents);

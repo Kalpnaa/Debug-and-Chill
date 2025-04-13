@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Event Tasks</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details | PackPal</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <!-- 🌈 Navbar -->
   <header class="navbar">
-    <h1 class="logo">📋 PackPal</h1>
+    <h1 class="logo">
+      <img src="logo.png" alt="PackPal Logo" width="36" height="36" /> PackPal
+    </h1>
     <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
@@ -16,36 +21,33 @@
       </ul>
     </nav>
   </header>
-  <main>
-  
-  <h2 id="event-title">Event Task </h2>
 
-  <div>
-    <input type="text" id="task-name" placeholder="Task name" />
-    <input type="text" id="assigned-to" placeholder="Assign to username" />
-    <button onclick="addTask()">Add Task</button>
-  </div>
+  <!-- ✨ Event Details Section -->
+  <section class="event-details">
+    <h2 id="event-name">Loading Event...</h2>
+    <p><strong>Location:</strong> <span id="event-location">Loading...</span></p>
+    <p><strong>Start Date:</strong> <span id="event-start-date">Loading...</span></p>
+    <p><strong>End Date:</strong> <span id="event-end-date">Loading...</span></p>
+    <p><strong>Number of Members:</strong> <span id="event-member-count">Loading...</span></p>
+    <p><strong>Status:</strong> <span id="event-status">Loading...</span></p>
 
-  <h3>Tasks</h3>
-  <ul id="task-list"></ul>
+    <h3>Tasks</h3>
+    <ul id="task-list"></ul>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <h3 class="footer-title">✨ PackPal Planner</h3>
+      <p class="footer-desc">Stay organized and conquer your events!</p>
+      <div class="footer-links">
+        <a href="home.html">Home</a>
+        <a href="support.html">Support</a>
+      </div>
+      <hr class="footer-line" />
+      <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
+    </div>
+  </footer>
 
   <script src="js/event.js"></script>
-</main>
-<footer class="footer">
-  <div class="footer-content">
-    <h3 class="footer-title">✨ PackPal Planner</h3>
-    <p class="footer-desc">Built for productivity and collaboration. Assign, track, and conquer tasks together!</p>
-    
-    <div class="footer-links">
-      <a href="home.html">Home</a>
-      <a href="tasks.html">Tasks</a>
-      <a href="support.html">Support</a>
-    </div>
-
-    <hr class="footer-line" />
-    <p class="footer-copy">© 2025 PackPal. Made with ☕ and ⚡</p>
-  </div>
-</footer>
-
 </body>
-</html> 
+</html>

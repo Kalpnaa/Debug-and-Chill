@@ -6,7 +6,7 @@ const taskSchema = new mongoose.Schema({
   assignedTo: String,
   createdBy: String,
   completed: { type: Boolean, default: false },
-  eventId: { type: mongoose.Schema.Types.ObjectId, ref: "Event" }, // Important!
+  eventId: { type: mongoose.Schema.Types.ObjectId, ref: "Event" },
 });
 
 module.exports = mongoose.models.Task || mongoose.model("Task", taskSchema);

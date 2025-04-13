@@ -1,67 +1,67 @@
-// 📁 member.js - Frontend logic for members
-
-const username = localStorage.getItem("username");
-const role = localStorage.getItem("role");
-
-if (role !== "member") {
-  alert("Unauthorized access");
-  window.location.href = "login.html";
+// ✅ Capitalize helper
+function capitalize(value) {
+  if (!value || typeof value !== 'string') return '';
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-// Fetch and display tasks assigned to the logged-in member
-async function loadMemberTasks() {
+// 📈 Update progress ring circle
+function updateProgressCircle(percent) {
+  const circle = document.querySelector('.progress-ring__circle');
+  const radius = circle.r.baseVal.value;
+  const circumference = 2 * Math.PI * radius;
+
+  circle.style.strokeDasharray = `${circumference} ${circumference}`;
+  const offset = circumference - (percent / 100) * circumference;
+  circle.style.strokeDashoffset = offset;
+
+  circle.style.stroke = 'url(#instaGradient)';
+}
+
+// 🚀 Load tasks for logged-in member
+async function loadTasks() {
   try {
-    const res = await fetch(`http://localhost:5000/api/tasks/assigned/${username}`);
-    const tasks = await res.json();
-    
-    const container = document.getElementById("task-container");
-    container.innerHTML = "";
+    const username = localStorage.getItem("username") || "guest";
+    const response = await fetch(`http://localhost:5000/api/tasks/assigned/${username}`);
 
-    let completed = 0;
+    if (!response.ok) {
+      throw new Error(`Server returned ${response.status}`);
+    }
 
-    tasks.forEach((task) => {
-      const div = document.createElement("div");
-      div.className = "task-card";
-      div.innerHTML = `
-        <span class="task-name">${task.title}</span>
-        <input type="checkbox" ${task.completed ? "checked" : ""} onchange="updateTask('${task._id}', this.checked)" />
+    const data = await response.json();
+    const taskList = document.getElementById("task-list");
+    taskList.innerHTML = "";
+
+    let completedCount = 0;
+
+    data.forEach((task) => {
+      const li = document.createElement("li");
+      li.className = "task-card";
+
+      const title = capitalize(task.title || "Untitled Task");
+      const desc = capitalize(task.description || "No description");
+      const status = task.completed ? "✅ Done" : "⌛ Pending";
+
+      li.innerHTML = `
+        <h3>${title}</h3>
+        <p>${desc}</p>
+        <p>Status: ${status}</p>
       `;
-      container.appendChild(div);
 
-      if (task.completed === true) completed++; // Safer check
+      if (task.completed) completedCount++;
+
+      taskList.appendChild(li);
     });
 
-    console.log(`Tasks loaded: ${tasks.length}, Completed: ${completed}`);
-    updateProgress(completed, tasks.length);
+    const percent = data.length > 0 ? Math.round((completedCount / data.length) * 100) : 0;
+    document.getElementById("progress-percent").textContent = `${percent}%`;
+    updateProgressCircle(percent);
+
   } catch (err) {
-    console.error("Error loading tasks:", err);
+    console.error("Failed to load tasks:", err);
+    const taskList = document.getElementById("task-list");
+    taskList.innerHTML = `<li class="error">⚠️ Could not load tasks. Try again later.</li>`;
   }
 }
 
-
-
-
-// Update task completion status
-async function updateTask(taskId, isCompleted) {
-  try {
-    const res = await fetch(`http://localhost:5000/api/tasks/${taskId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ completed: isCompleted })
-    });
-
-    const data = await res.json();
-    if (res.ok) loadMemberTasks();
-  } catch (err) {
-    console.error("Error updating task:", err);
-  }
-}
-
-function updateProgress(completed, total) {
-  const percent = total === 0 ? 0 : Math.round((completed / total) * 100);
-  const bar = document.getElementById("progress-bar");
-  bar.style.width = `${percent}%`;
-  bar.textContent = `${percent}%`;
-}
-
-loadMemberTasks();
+// ⏱️ Run on load
+window.addEventListener("DOMContentLoaded", loadTasks);

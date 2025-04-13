@@ -1,17 +1,14 @@
 const mongoose = require("mongoose");
 
-const TaskSchema = new mongoose.Schema({
+const eventSchema = new mongoose.Schema({
   name: String,
-  status: { type: String, enum: ["pending", "completed"] },
-});
-
-const EventSchema = new mongoose.Schema({
-  name: String,
-  status: String,
+  location: String,
+  startDate: Date,
+  endDate: Date,
+  memberCount: Number,
   createdBy: String,
-  tasks: [TaskSchema],  // Embedded tasks
+  status: { type: String, default: "planned" },
+  tasks: [{ type: mongoose.Schema.Types.ObjectId, ref: "Task" }]
 });
 
-const Event = mongoose.model("Event", EventSchema);
-
-module.exports = Event;
+module.exports = mongoose.models.Event || mongoose.model("Event", eventSchema);
